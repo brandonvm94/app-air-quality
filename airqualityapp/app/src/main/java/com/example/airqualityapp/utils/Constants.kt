@@ -17,4 +17,7 @@ object Constants {
     // Users
     const val USER: String = "user"
     const val USERS: String = "users"
+
+    // Sensors
+    const val SENSORS: String = "sensors"
 }

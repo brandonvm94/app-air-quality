@@ -6,6 +6,7 @@ const config = require('./config');
 
 const authRoutes = require('./routes/auth-routes');
 const roleRoutes = require('./routes/role-routes');
+const sensorsRoutes = require('./routes/sensor-routes');
 const myProfileRoutes = require('./routes/my-profile-routes');
 const usersRoutes = require('./routes/users-routes');
 
@@ -19,5 +20,6 @@ app.use('/api', authRoutes.routes);
 app.use('/api', myProfileRoutes.routes);
 app.use('/api', usersRoutes.routes);
 app.use('/api', roleRoutes.routes);
+app.use('/api', sensorsRoutes.routes);
 
 app.listen(config.port, () => console.log('App is listening on url http://localhost:' + config.port));
