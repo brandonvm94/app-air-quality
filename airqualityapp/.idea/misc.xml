@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/johnc/app-air-quality/airqualityapp/app/src/main/res/layout/activity_change_password.xml" value="0.16621376811594202" />
+        <entry key="..\:/Users/johnc/app-air-quality/airqualityapp/app/src/main/res/layout/activity_create_user.xml" value="0.16621376811594202" />
+        <entry key="..\:/Users/johnc/app-air-quality/airqualityapp/app/src/main/res/layout/activity_details_list.xml" value="0.25" />
+        <entry key="..\:/Users/johnc/app-air-quality/airqualityapp/app/src/main/res/layout/activity_main.xml" value="0.16621376811594202" />
+        <entry key="..\:/Users/johnc/app-air-quality/airqualityapp/app/src/main/res/layout/activity_my_profile.xml" value="0.2115036231884058" />
+        <entry key="..\:/Users/johnc/app-air-quality/airqualityapp/app/src/main/res/layout/activity_sensor_details.xml" value="0.264" />
+        <entry key="..\:/Users/johnc/app-air-quality/airqualityapp/app/src/main/res/layout/activity_update_user.xml" value="0.2115036231884058" />
+        <entry key="..\:/Users/johnc/app-air-quality/airqualityapp/app/src/main/res/layout/activity_users_list.xml" value="0.25" />
+        <entry key="..\:/Users/johnc/app-air-quality/airqualityapp/app/src/main/res/layout/details_item_list.xml" value="0.25" />
+        <entry key="..\:/Users/johnc/app-air-quality/airqualityapp/app/src/main/res/layout/user_item_list.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/ic_black_color_back_24dp.xml" value="0.29444444444444445" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.20742753623188406" />
         <entry key="app/src/main/res/layout/activity_my_profile.xml" value="0.25271739130434784" />
