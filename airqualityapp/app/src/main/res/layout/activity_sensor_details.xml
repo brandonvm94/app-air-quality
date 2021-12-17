@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/light_blue"
-    tools:context=".activities.SensorDetailsActivity">
+    android:theme="@style/Theme.AirQualityApp"
+    tools:context=".activities.DetailsListActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -20,5 +21,28 @@
             app:titleTextColor="@color/white"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
     </com.google.android.material.appbar.AppBarLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_blue"
+        android:elevation="10dp"
+        app:cardBackgroundColor="@color/light_blue">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_details_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/no_detail_message"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="No hay detalles"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>
+

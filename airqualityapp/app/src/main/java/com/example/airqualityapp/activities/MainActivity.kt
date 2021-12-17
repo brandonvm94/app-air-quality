@@ -110,7 +110,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             googleMap.awaitMapLoad()
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(costaRicaPosition))
             googleMap.animateCamera(CameraUpdateFactory.zoomTo(7f), 2000, null)
-
+            googleMap.uiSettings.isZoomControlsEnabled = true
             SensorClass().getAllSensors(this@MainActivity)
         }
     }
@@ -133,7 +133,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             val datepickerdialog: DatePickerDialog = DatePickerDialog(this@MainActivity, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
                 val intent = Intent(this@MainActivity, SensorDetailsActivity::class.java)
                 intent.putExtra("sensorId", sensorId.toString())
-                intent.putExtra("sensorDate", "${dayOfMonth}/${monthOfYear}/${year}")
+                intent.putExtra("sensorDate", "${dayOfMonth}/${monthOfYear + 1}/${year}")
                 startActivity(intent)
             }, year, month, day)
 

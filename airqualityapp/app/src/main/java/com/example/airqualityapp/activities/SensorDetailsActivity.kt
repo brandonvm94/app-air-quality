@@ -29,7 +29,7 @@ class SensorDetailsActivity : BaseActivity() {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true)
             actionBar.setHomeAsUpIndicator(R.drawable.ic_black_color_back_24dp)
-            actionBar.title = "Sensor Detalles"
+            actionBar.title = "Detalles del sensor"
         }
 
         toolbar_sensor_details_activity.setNavigationOnClickListener { onBackPressed() }
