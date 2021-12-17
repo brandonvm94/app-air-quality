@@ -4,7 +4,6 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import com.example.airqualityapp.activities.DetailsListActivity
 import com.example.airqualityapp.activities.SensorDetailsActivity
 import com.example.airqualityapp.model.Detail
 
@@ -13,7 +12,7 @@ import org.json.JSONObject
 
 class DetailsClass {
 
-    fun getAllDetails(activity: DetailsListActivity) {
+    fun getAllDetails(activity: SensorDetailsActivity) {
         val queue = Volley.newRequestQueue(activity)
         val url = Constants.API_URL + Constants.DETAILS
 
@@ -44,7 +43,7 @@ class DetailsClass {
                     val detail = Detail(sensorId, date, temperature, humidity, no2, o3, no, so2, pm1, pm25, pm10, co, h2s, ambientTemperature, ambientHumidity, ambientPressure)
                     detailsList.add(detail)
                 }
-                activity.loadDetailsSuccess(detailsList)
+//                activity.loadDetailsSuccess(detailsList)
             },
             { error ->
                 Log.e(
@@ -52,15 +51,15 @@ class DetailsClass {
                     error.toString(),
                     error,
                 )
-               activity.loadDetailsError(error.toString())
+//               activity.loadDetailsError(error.toString())
             }
         )
 
         queue.add(detailsRequest)
     }
-    fun getDetail(activity: DetailsListActivity, date: String) {
+    fun getDetail(activity: SensorDetailsActivity, sensorId: String, date: String) {
         val queue = Volley.newRequestQueue(activity)
-        val url = Constants.API_URL + Constants.DATE + "/${date}"
+        val url = Constants.API_URL + Constants.DETAILS + "/${sensorId}/${date}"
 
         val detailRequest = JsonObjectRequest(
             Request.Method.GET,
@@ -84,7 +83,7 @@ class DetailsClass {
                 val ambientHumidity = response.getInt("ambientHumidity")
                 val ambientPressure = response.getInt("ambientPressure")
                 val detailInfo = Detail(sensorId, date, temperature, humidity, no2, o3, no, so2, pm1, pm25, pm10, co, h2s, ambientTemperature, ambientHumidity, ambientPressure)
-                activity.getDetailSuccess(detailInfo)
+                activity.getSensorDetailsSuccess(detailInfo)
             },
             { error ->
                 Log.e(
@@ -92,7 +91,7 @@ class DetailsClass {
                     error.toString(),
                     error,
                 )
-                activity.getDetailError(error.toString())
+                activity.getSensorDetailsError(error.toString())
             }
         )
 

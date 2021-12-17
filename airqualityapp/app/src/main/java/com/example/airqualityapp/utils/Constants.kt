@@ -23,5 +23,4 @@ object Constants {
 
     //Details
     const val DETAILS: String = "details"
-    const val DATE: String = "date"
 }

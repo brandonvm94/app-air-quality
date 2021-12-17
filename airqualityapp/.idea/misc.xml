@@ -25,6 +25,8 @@
         <entry key="app/src/main/res/layout/activity_update_user.xml" value="0.2477355072463768" />
         <entry key="app/src/main/res/layout/activity_users_list.xml" value="0.25769927536231885" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.25271739130434784" />
+        <entry key="app/src/main/res/layout/details_item_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.2318840579710145" />
         <entry key="app/src/main/res/layout/user_item_list.xml" value="0.25769927536231885" />
       </map>
     </option>

@@ -20,11 +20,21 @@ const getAllDetails = (req, res, next) => {
     .catch(error => res.status(400).json({ message: error.message }));
 }
 const getDetail = (req, res, next) => {  
-    const date = req.params.date;
-    //const sensorId = req.params.sensorId;
-    firestore.collection(DETAILS_ENDPOINT).doc(date).get()
-      .then(response => res.json(response.data()))
-      .catch(error => res.status(400).json({ message: error.message }));
+    const sensorDate = req.params.date;
+    const sensorId = req.params.sensorId;
+
+    firestore.collection(DETAILS_ENDPOINT)
+        .where('sensorId', '==', sensorId)
+        .where('date', '==', sensorDate)
+        .get()
+        .then(querySnapshot => {
+            if (!querySnapshot.empty) {
+                return res.json(querySnapshot.docs[0].data())
+            } else {
+                return res.status(400).json({ message: 'No hay detalles de este sensor' });
+            }
+        })
+        .catch(error => res.status(400).json({ message: error.message }));
   }
   module.exports = {
     getAllDetails,
