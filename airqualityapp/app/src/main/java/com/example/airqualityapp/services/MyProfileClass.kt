@@ -27,7 +27,10 @@ class MyProfileClass {
                     error.toString(),
                     error,
                 )
-                activity.updateMyInfoError(error.toString())
+                val responseBody = String(error.networkResponse.data)
+                val data = JSONObject(responseBody)
+                val message = data.optString("message")
+                activity.updateMyInfoError(message)
             }
         )
 
@@ -51,7 +54,10 @@ class MyProfileClass {
                     error.toString(),
                     error,
                 )
-                activity.updateMyPasswordError(error.toString())
+                val responseBody = String(error.networkResponse.data)
+                val data = JSONObject(responseBody)
+                val message = data.optString("message")
+                activity.updateMyPasswordError(message)
             }
         )
 

@@ -38,7 +38,10 @@ class SensorClass {
                     error.toString(),
                     error,
                 )
-                activity.loadSensorsError(error.toString())
+                val responseBody = String(error.networkResponse.data)
+                val data = JSONObject(responseBody)
+                val message = data.optString("message")
+                activity.loadSensorsError(message)
             }
         )
 

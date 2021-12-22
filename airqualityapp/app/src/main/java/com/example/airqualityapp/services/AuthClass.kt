@@ -29,7 +29,10 @@ class AuthClass {
                     error.toString(),
                     error,
                 )
-                activity.userRegisteredError(error.toString())
+                val responseBody = String(error.networkResponse.data)
+                val data = JSONObject(responseBody)
+                val message = data.optString("message")
+                activity.userRegisteredError(message)
             }
         )
 
@@ -53,7 +56,10 @@ class AuthClass {
                     error.toString(),
                     error,
                 )
-                activity.signInError(error.toString())
+                val responseBody = String(error.networkResponse.data)
+                val data = JSONObject(responseBody)
+                val message = data.optString("message")
+                activity.signInError(message)
             }
         )
 
@@ -77,7 +83,10 @@ class AuthClass {
                     error.toString(),
                     error,
                 )
-                activity.signOutError(error.toString())
+                val responseBody = String(error.networkResponse.data)
+                val data = JSONObject(responseBody)
+                val message = data.optString("message")
+                activity.signOutError(message)
             }
         )
 

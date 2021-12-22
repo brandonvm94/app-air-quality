@@ -41,7 +41,10 @@ class UsersClass {
                     error.toString(),
                     error,
                 )
-                activity.loadUsersError(error.toString())
+                val responseBody = String(error.networkResponse.data)
+                val data = JSONObject(responseBody)
+                val message = data.optString("message")
+                activity.loadUsersError(message)
             }
         )
 
@@ -70,7 +73,10 @@ class UsersClass {
                     error.toString(),
                     error,
                 )
-                activity.getUserError(error.toString())
+                val responseBody = String(error.networkResponse.data)
+                val data = JSONObject(responseBody)
+                val message = data.optString("message")
+                activity.getUserError(message)
             }
         )
 
@@ -94,7 +100,10 @@ class UsersClass {
                     error.toString(),
                     error,
                 )
-                activity.createUserError(error.toString())
+                val responseBody = String(error.networkResponse.data)
+                val data = JSONObject(responseBody)
+                val message = data.optString("message")
+                activity.createUserError(message)
             }
         )
 
@@ -118,7 +127,10 @@ class UsersClass {
                     error.toString(),
                     error,
                 )
-                activity.editUserError(error.toString())
+                val responseBody = String(error.networkResponse.data)
+                val data = JSONObject(responseBody)
+                val message = data.optString("message")
+                activity.editUserError(message)
             }
         )
 
@@ -142,7 +154,10 @@ class UsersClass {
                     error.toString(),
                     error,
                 )
-                activity.deleteUserError(error.toString())
+                val responseBody = String(error.networkResponse.data)
+                val data = JSONObject(responseBody)
+                val message = data.optString("message")
+                activity.deleteUserError(message)
             }
         )
 

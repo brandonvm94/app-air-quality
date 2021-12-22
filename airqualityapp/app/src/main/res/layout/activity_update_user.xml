@@ -60,6 +60,42 @@
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="Role"
+                android:textSize="20sp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="30dp"
+                android:textStyle="bold" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:id="@+id/roleOptions">
+                <RadioButton
+                    android:id="@+id/admin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:buttonTint="#1A99C4"
+                    android:text="Admin"
+                    android:textSize="16sp"
+                    android:layout_weight="1"
+                    android:checked="true" />
+                <RadioButton
+                    android:id="@+id/user"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:buttonTint="#1A99C4"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:text="User" />
+            </RadioGroup>
+
             <Button
                 android:id="@+id/update_user_btn"
                 android:layout_width="match_parent"

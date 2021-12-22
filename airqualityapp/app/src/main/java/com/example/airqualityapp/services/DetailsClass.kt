@@ -91,7 +91,10 @@ class DetailsClass {
                     error.toString(),
                     error,
                 )
-                activity.getSensorDetailsError(error.toString())
+                val responseBody = String(error.networkResponse.data)
+                val data = JSONObject(responseBody)
+                val message = data.optString("message")
+                activity.getSensorDetailsError(message)
             }
         )
 

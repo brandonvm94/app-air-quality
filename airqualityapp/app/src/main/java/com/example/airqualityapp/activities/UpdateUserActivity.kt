@@ -3,6 +3,8 @@ package com.example.airqualityapp.activities
 import android.app.Activity
 import android.os.Bundle
 import android.text.TextUtils
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import com.example.airqualityapp.R
 import com.example.airqualityapp.model.User
 import com.example.airqualityapp.services.UsersClass
@@ -49,6 +51,11 @@ class UpdateUserActivity : BaseActivity() {
     fun getUserSuccess(userInfo: User) {
         hideProgressDialog()
         edit_user_name.setText(userInfo.name)
+
+        when (userInfo.roleId) {
+            1 -> findViewById<RadioButton>(R.id.admin).isChecked = true
+            else -> findViewById<RadioButton>(R.id.user).isChecked = true
+        }
     }
 
     fun getUserError(message: String) {
@@ -60,13 +67,23 @@ class UpdateUserActivity : BaseActivity() {
     private fun editUser() {
         val name: String = edit_user_name.text.toString().trim { it <= ' ' }
 
+        // Theme RadioGroup
+        val roleRadioGroup = findViewById<RadioGroup>(R.id.roleOptions)
+        val roleRadioGroupSelectedId: Int = roleRadioGroup.getCheckedRadioButtonId()
+        val roleRadioButtonSelected = findViewById<RadioButton>(roleRadioGroupSelectedId)
+        var roleValue: Int;
+        when (roleRadioButtonSelected.getText()) {
+            "Admin" -> roleValue = 1
+            else -> roleValue = 2
+        }
+
         if (validateForm(name)) {
             showProgressDialog("Editando Usuario")
 
             val userInfo = JSONObject()
             userInfo.put("name", name)
             userInfo.put("email", activityUserSelected.email)
-            userInfo.put("roleId", activityUserSelected.roleId)
+            userInfo.put("roleId", roleValue)
 
             UsersClass().editUser(this@UpdateUserActivity, userInfo, activityUserSelected.id)
         }
