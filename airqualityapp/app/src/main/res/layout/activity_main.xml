@@ -21,6 +21,29 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer"
-        android:background="@color/light_blue"/>
+        android:background="@color/light_blue">
+
+        <TextView
+            android:id="@+id/textViewMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="400dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="Modo" />
+
+        <Button
+            android:id="@+id/btnLightDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="440dp"
+            android:background="@drawable/switch_btn_lightdarkmode"
+            android:text="Light"
+            tools:ignore="TextContrastCheck"/>
+
+    </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

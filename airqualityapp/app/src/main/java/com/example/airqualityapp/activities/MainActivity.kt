@@ -3,11 +3,15 @@ package com.example.airqualityapp.activities
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.content.SharedPreferences
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
+import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.airqualityapp.R
@@ -45,6 +49,36 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
         nav_view.setNavigationItemSelectedListener(this)
         AuthClass().getCurrentSession(this@MainActivity)
+
+        //Cambio de Light Mode a Dark Mode y viceversa segun lo que seleccione del usuario
+        val btnLightDark = findViewById<Button>(R.id.btnLightDark)
+        val appSettingPrefs: SharedPreferences = getSharedPreferences("AppSettingPrefs", 0)
+        val sharedPrefsEdit: SharedPreferences.Editor = appSettingPrefs.edit()
+        val isNightModeOn: Boolean = appSettingPrefs.getBoolean("NightMode", false)
+
+        if(isNightModeOn){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            btnLightDark.text = "Light Mode"
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            btnLightDark.text = "Dark Mode"
+        }
+
+        btnLightDark.setOnClickListener(View.OnClickListener {
+            if(isNightModeOn){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                sharedPrefsEdit.putBoolean("NightMode", false)
+                sharedPrefsEdit.apply()
+
+                btnLightDark.text = "Dark Mode"
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                sharedPrefsEdit.putBoolean("NightMode", true)
+                sharedPrefsEdit.apply()
+
+                btnLightDark.text = "Light Mode"
+            }
+        })
     }
 
     override fun onBackPressed() {
