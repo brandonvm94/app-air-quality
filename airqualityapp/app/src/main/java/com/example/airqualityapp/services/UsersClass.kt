@@ -41,10 +41,7 @@ class UsersClass {
                     error.toString(),
                     error,
                 )
-                val responseBody = String(error.networkResponse.data)
-                val data = JSONObject(responseBody)
-                val message = data.optString("message")
-                activity.loadUsersError(message)
+                activity.loadUsersError(error.toString())
             }
         )
 
@@ -73,10 +70,7 @@ class UsersClass {
                     error.toString(),
                     error,
                 )
-                val responseBody = String(error.networkResponse.data)
-                val data = JSONObject(responseBody)
-                val message = data.optString("message")
-                activity.getUserError(message)
+                activity.getUserError(error.toString())
             }
         )
 
@@ -100,10 +94,7 @@ class UsersClass {
                     error.toString(),
                     error,
                 )
-                val responseBody = String(error.networkResponse.data)
-                val data = JSONObject(responseBody)
-                val message = data.optString("message")
-                activity.createUserError(message)
+                activity.createUserError(error.toString())
             }
         )
 
@@ -127,10 +118,7 @@ class UsersClass {
                     error.toString(),
                     error,
                 )
-                val responseBody = String(error.networkResponse.data)
-                val data = JSONObject(responseBody)
-                val message = data.optString("message")
-                activity.editUserError(message)
+                activity.editUserError(error.toString())
             }
         )
 
@@ -154,10 +142,7 @@ class UsersClass {
                     error.toString(),
                     error,
                 )
-                val responseBody = String(error.networkResponse.data)
-                val data = JSONObject(responseBody)
-                val message = data.optString("message")
-                activity.deleteUserError(message)
+                activity.deleteUserError(error.toString())
             }
         )
 

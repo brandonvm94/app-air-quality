@@ -56,10 +56,7 @@ class AuthClass {
                     error.toString(),
                     error,
                 )
-                val responseBody = String(error.networkResponse.data)
-                val data = JSONObject(responseBody)
-                val message = data.optString("message")
-                activity.signInError(message)
+                activity.signInError(error.toString())
             }
         )
 
@@ -83,10 +80,7 @@ class AuthClass {
                     error.toString(),
                     error,
                 )
-                val responseBody = String(error.networkResponse.data)
-                val data = JSONObject(responseBody)
-                val message = data.optString("message")
-                activity.signOutError(message)
+                activity.signOutError(error.toString())
             }
         )
 
